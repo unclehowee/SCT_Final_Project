@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    display: auto;
+}
+
+h1 {
+    background-color: rgb(38, 38, 68);
+    padding: 2rem 2rem;
+    color: white;
+    display: auto;
+}
+
+.para{
+    color: rgb(121, 114, 114);
+}
+
+.images {
+    height: 400px;
+    width: 400px;
+}
+
+#error-container {
+    color: rgb(202, 47, 47);
+    padding-top: 1rem;
+}
+
+button {
+    padding: 0.25rem;
+    border-radius: 0.15rem;
+    border: .01rem solid black;
+}
+
+button:hover{
+    background-color: rgb(189, 182, 182);
+}
+
+input {
+    padding: 0.25rem;
+}
