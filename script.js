@@ -21,23 +21,22 @@ async function fetchPhotos(date){
 
     const data = await makeRequest(updateDateEndpoint);
     
-
     photoArray = data.photos.map(photo => {
-                    const {
-                        img_src,
-                        sol,
-                        earth_date,
-                        camera: {
-                            full_name
-                        }
-                    } = photo;
-                    return {img_src, sol, earth_date, full_name};
-                });
+        const {
+            img_src,
+            sol,
+            earth_date,
+            camera: {
+                full_name
+            }
+        } = photo;
+        return {img_src, sol, earth_date, full_name};
+    });
 
-                if (photoArray.length === 0){
-                    throw new Error("No photos are available for this date.");
-                }
-                          
+    if (photoArray.length === 0){
+        throw new Error("No photos are available for this date.");
+    }
+
     return photoArray.slice(0,3);
 };
 
@@ -48,12 +47,11 @@ async function displayPhotos(photos, description){
     photoContainer.innerHTML = "";
 
     const photoHeader = document.createElement("h2");
-    photoHeader.innerText = description;
+    photoHeader.innerHTML = description;
     photoContainer.appendChild(photoHeader);
     
     try{
         photos.forEach(photo => {
-
             const img = document.createElement("img");
             img.src = photo.img_src;
             img.classList = "images";
@@ -66,7 +64,7 @@ async function displayPhotos(photos, description){
 
             photoContainer.appendChild(img);
             photoContainer.appendChild(para);   
-        })
+        });
     }catch(error){
         console.error("Photos are not available.");
     }
@@ -80,7 +78,6 @@ async function loadInitialPhotos(){
     } catch (error){
         console.error("Failed to load initial photos");
     }
-
 }
 
 document.addEventListener("DOMContentLoaded", loadInitialPhotos);
