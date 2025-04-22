@@ -1,0 +1,22 @@
+name: "Semgrep"
+on:
+  push:
+    branches:
+      - development
+    paths:
+      - "**/*.js"
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Semgrep
+        uses: semgrep-actions/semgrep-action@v2
+
+      - name: Run Semgrep Scan
+        uses: semgrep-actions/semgrep-action@v2
+        with:
+          config: "p/js"
