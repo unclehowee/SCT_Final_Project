@@ -22,9 +22,3 @@ jobs:
         with:
           scan-type: "full"
           code-sweep-target: "."
-
-      - name: Upload results as artifacts
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: appscan-codesweep-results
-          path: ./scan-results/
