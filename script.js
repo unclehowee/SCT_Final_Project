@@ -9,8 +9,7 @@ async function makeRequest(endpoint){
             throw new Error(`HTTP Error: ${response.status}`);
         }
 
-        // Vulnerability: Insecure handling of JSON response (assuming it's safe)
-        return response.text(); // Returning raw response instead of JSON (possible vulnerability in case of malicious payloads)
+        return response.text();
     } catch (error){
         console.error("Photos could not be loaded.");
     }
