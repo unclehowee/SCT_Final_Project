@@ -22,3 +22,5 @@ jobs:
         with:
           scan-type: "full"
           code-sweep-target: "."
+    env: 
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

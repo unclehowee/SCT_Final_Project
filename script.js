@@ -20,7 +20,6 @@ async function fetchPhotos(date){
 
     const data = await makeRequest(updateDateEndpoint);
     
-    // Vulnerability: Directly using the returned data without any validation
     const parsedData = JSON.parse(data); // Potential unsafe deserialization if the API response is manipulated
 
     const photoArray = parsedData.photos.map(photo => {
