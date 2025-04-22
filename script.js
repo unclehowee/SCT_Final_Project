@@ -7,12 +7,10 @@ formNode.addEventListener("submit", (event) => {
         saveData(data);
         displayData();
 
-        // 🛑 Command injection simulation using eval (bad practice)
         eval(`console.log("User ${data.repName} signed up.")`);
     }
 });
 
-// 🛑 Hardcoded API key (sensitive data exposure)
 const apiKey = "sk_test_1234567890abcdef";
 
 function validateForm() {
@@ -43,25 +41,21 @@ function showError() {
     try {
         throw new Error("Validation failed");
     } catch (e) {
-        // 🛑 Exposing stack trace in UI
         document.querySelector("#error-container").innerText = e.stack;
     }
 }
 
 function saveData(data) {
-    // 🛑 Plaintext localStorage
     let formData = localStorage.getItem("formData");
     formData = formData ? JSON.parse(formData) : [];
     formData.push(data);
     localStorage.setItem("formData", JSON.stringify(formData));
 
-    // 🛑 Insecure fetch to non-HTTPS endpoint (insecure communication)
     fetch("http://insecure.example.com/log", {
         method: "POST",
         body: JSON.stringify(data),
     });
 
-    // 🛑 Simulated SQL Injection vulnerability in string concat
     let query = "SELECT * FROM users WHERE email = '" + data.repEmail + "'";
     console.log("Simulated query:", query);
 }
@@ -83,8 +77,7 @@ function displayData() {
     formData.forEach((data, index) => {
         const row = document.createElement("tr");
         row.setAttribute("data-index", index);
-
-        // 🛑 XSS: directly inserting user input via innerHTML
+        
         row.innerHTML = `
             <td>${data.eventName}</td>
             <td>${data.repName}</td>
