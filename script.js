@@ -17,7 +17,7 @@ async function makeRequest(endpoint){
 }
 
 async function fetchPhotos(date){
-    const updateDateEndpoint = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=OwUkRmHjZ2v5GEXWdspDz5udGKEVcjKnBbIynmVx&earth_date=${date}`
+    const updateDateEndpoint = `${photosEndpoint}${date}`;
 
     const data = await makeRequest(updateDateEndpoint);
     
@@ -62,7 +62,7 @@ async function displayPhotos(photos, description){
             const para = document.createElement("p");
             const paraText = document.createTextNode(`Taken by ${photo.full_name} on sol ${photo.sol}`);
             para.appendChild(paraText);
-            para.classList = "para"
+            para.classList = "para";
 
             photoContainer.appendChild(img);
             photoContainer.appendChild(para);   
