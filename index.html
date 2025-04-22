@@ -1,20 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Mars Photo Explorer</title>
-</head>
-<body>
-    <main>
-        <h1>Mars Rover Photos</h1>
-        <label for="date">Select a Date:</label>
-        <input id="date" name="date" type="date">
-        <button id="load-photos" type="button">Load Photos</button>
-        <div id="error-container"></div>
-        <div id="photos-container"></div>
-    </main>
-</body>
-<script src="script.js"></script>
+    <title>Community Support Tracker</title>
+    </head>
+    <body>
+        <header><h1>Community Support Tracker</h1></header>
+        <!-- Navigation bar -->
+        <nav>
+            <div class="hamburger" id="hamburger-icon">
+                &#9776;
+            </div>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="student-1.html">Donation Tracker</a></li>
+              <li><a href="student-2.html">Volunteer Hours Tracker</a></li>
+              <li><a href="student-3.html">Event Signup</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <form>
+            <!-- Patrick's Section-->
+                <section id="Donation">
+                    <h2>Donation Tracker</h2>
+                    <div> You can make donations <a href="student-1.html">here</a></div>
+                </section>
+            
+            <!-- Lars's Section-->
+                <section id="Volunteer">
+                    <h2>Volunteer Hours Tracker</h2>
+                    You can check you volunteer hours <a href="student-2.html">here</a>
+                </section>
+
+            <!-- Dom's Section-->
+                <section id="Event">
+                    <h2>Event Signup</h2>
+                    You can sign up for events <a href="student-3.html">here</a>
+                </section>
+            </form>
+        </main>
+
+        <footer><p>&copy; 2024 Community Support Tracker. All rights reserved.</p></footer>
+    </body>
+    <script src="script.js"></script>
 </html>
