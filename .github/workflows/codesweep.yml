@@ -5,7 +5,7 @@ on:
     branches:
       - development
     paths:
-      - "**/*.js" 
+      - "**/*.js"
 
 jobs:
   scan:
@@ -15,16 +15,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 
+          fetch-depth: 0
 
       - name: Run AppScan CodeSweep
         uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v2.1
         with:
-          scan-type: "full"  
-          code-sweep-target: "."  
+          scan-type: "full"
+          code-sweep-target: "."
 
       - name: Upload results as artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: appscan-codesweep-results
-          path: ./scan-results/ 
+          path: ./scan-results/
