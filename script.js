@@ -7,11 +7,12 @@ formNode.addEventListener("submit", (event) => {
         saveData(data);
         displayData();
 
-        eval(`console.log("User ${data.repName} signed up.")`);
+        eval(`console.log("User ${data.repName} signed up.")`); // eval here can be used as an injection tool.
+        // you can just use console.log for a direct call
     }
 });
 
-const apiKey = "sk_test_1234567890abcdef";
+const apiKey = "sk_test_1234567890abcdef"; // hardcoded API key means it is exposed to everyone when viewing the source.
 
 function validateForm() {
     const eventNameNode = document.querySelector("#event-name");
@@ -49,14 +50,15 @@ function saveData(data) {
     let formData = localStorage.getItem("formData");
     formData = formData ? JSON.parse(formData) : [];
     formData.push(data);
-    localStorage.setItem("formData", JSON.stringify(formData));
+    localStorage.setItem("formData", JSON.stringify(formData)); // saving information in local or session storage is vulnerable to XSS attacks.
 
+    // Insecure URL used by fetch command. URL is in http which means it is not secure.
     fetch("http://insecure.example.com/log", {
         method: "POST",
         body: JSON.stringify(data),
     });
 
-    let query = "SELECT * FROM users WHERE email = '" + data.repEmail + "'";
+    let query = "SELECT * FROM users WHERE email = '" + data.repEmail + "'"; // variable query is a potentially injectable SQL query. Using variables within the string text of a query is dangerous.
     console.log("Simulated query:", query);
 }
 
