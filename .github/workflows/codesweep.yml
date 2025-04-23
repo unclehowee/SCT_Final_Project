@@ -2,7 +2,9 @@ name: "HCL AppScan CodeSweep"
 on:
   push:
     branches:
-        - main
+      - main, development
+  pull_request:
+    types: [opened,synchronize]
 jobs:
   scan:
     runs-on: ubuntu-latest
